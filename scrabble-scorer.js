@@ -99,7 +99,20 @@ let scrabbleObj = {
     }
 };
 
-let scrabbleScore;
+let scrabbleScore = function(word) {
+	    word = word.toUpperCase();
+	    let letterPoints = 0;
+	    for (let i = 0; i < word.length; i++) {
+ 
+	        for (letter in newPointStructure) {
+ 
+		        if (letter === word[i]) {
+		    	    letterPoints = letterPoints + Number(newPointStructure[word[i]]);
+		        }
+	        }
+	    }
+	    return letterPoints;
+}
 
 const scoringAlgorithms = [simpleObj , vowelObj , scrabbleObj];
 
