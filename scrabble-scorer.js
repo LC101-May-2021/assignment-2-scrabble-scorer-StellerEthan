@@ -85,17 +85,15 @@ let scrabbleObj = {
     description:"The traditional scoring algorithm.",
     scoringFuction : function(word) {
 	    word = word.toUpperCase();
-	    let letterPoints = "";
- 
+	    let letterPoints = 0;
 	    for (let i = 0; i < word.length; i++) {
  
-	    for (const pointValue in oldPointStructure) {
+	        for (letter in newPointStructure) {
  
-		    if (oldPointStructure[pointValue].includes(word[i])) {
-		    	letterPoints += `Points for '${word[i]}': ${pointValue}\n`
-		    }
- 
-	     }
+		        if (letter === word[i]) {
+		    	    letterPoints = letterPoints + Number(newPointStructure[word[i]]);
+		        }
+	        }
 	    }
 	    return letterPoints;
     }
@@ -139,10 +137,10 @@ function transform(obj) {
 
 
 function runProgram() {
-   //initialPrompt();
-   //console.log(`Score for ${word}: ${scorerPrompt()}`);
+   initialPrompt();
    transform(oldPointStructure);
-   console.log(newPointStructure);
+   console.log(`Score for ${word}: ${scorerPrompt()}`);
+   
 }
 
 // Don't write any code below this line //
