@@ -39,7 +39,7 @@ function initialPrompt() {
 };
 
 let simpleScore = function(word){
-        return word.length + 1;
+        return word.length;
 };
 
 let vowelBonusScore = function(word){
@@ -59,7 +59,7 @@ let simpleObj = {
     name: "Simple Score",
     description: "Each letter is worth 1 point.",
     scoringFuction: function(word){
-        return word.length + 1;
+        return word.length;
     }
 }
 
