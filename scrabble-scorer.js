@@ -56,38 +56,10 @@ let vowelBonusScore = function(word){
     return wordScore;
 };
 
-let simpleObj = {
-    name: "Simple Score",
-    description: "Each letter is worth 1 point.",
-    scoringFuction: function(word){
-        return word.length;
-    }
-}
-
-let vowelObj = {
-    name: "Bonus Vowels",
-    description: 'Vowels are 3 pts, consonants are 1 pt.',
-    scoringFuction: function(word){
-        let wordScore = 0
-        let vowels = 'aeiou'
-        for (i=0; i < word.length; i++){
-            if (vowels.includes(word[i])){
-                wordScore = wordScore + 3;
-            } else{
-                wordScore = wordScore + 1;
-                }
-        }
-    return wordScore;
-    }
-}
-
-let scrabbleObj = {
-    name:"Scrabble",
-    description:"The traditional scoring algorithm.",
-    scoringFuction : function(word) {
+let scrabbleScore = function(word) {
 	    word = word.toLowerCase();
-        transform(oldPointStructure);
 	    let letterPoints = 0;
+        transform(oldPointStructure);
 	    for (let i = 0; i < word.length; i++) {
  
 	        for (letter in newPointStructure) {
@@ -98,24 +70,26 @@ let scrabbleObj = {
 	        }
 	    }
 	    return letterPoints;
-    }
-};
-
-let scrabbleScore = function(word) {
-	    word = word.toLowerCase();
-	    let letterPoints = 0;
-        transform(oldPointStructure);
-	    for (let i = 0; i < word.length; i++) {
- 
-	        for (letter in newPointStructure) {
- 
-		        if (letter === word[i]) {
-		    	    letterPoints = letterPoints + newPointStructure[word[i]];
-		        }
-	        }
-	    }
-	    return letterPoints;
 }
+
+
+let simpleObj = {
+    name: "Simple Score",
+    description: "Each letter is worth 1 point.",
+    scoringFuction: simpleScore
+}
+
+let vowelObj = {
+    name: "Bonus Vowels",
+    description: 'Vowels are 3 pts, consonants are 1 pt.',
+    scoringFuction: vowelBonusScore
+}
+
+let scrabbleObj = {
+    name:"Scrabble",
+    description:"The traditional scoring algorithm.",
+    scoringFuction : scrabbleScore
+};
 
 const scoringAlgorithms = [simpleObj , vowelObj , scrabbleObj];
 
