@@ -91,7 +91,7 @@ let scrabbleObj = {
     scoringFuction : scrabbleScore
 };
 
-const scoringAlgorithms = [simpleObj , vowelObj , scrabbleObj];
+const scoringAlgorithms = [simpleObj.scoringFuction , vowelObj.scoringFuction , scrabbleObj.scoringFuction];
 
 function scorerPrompt() {
     let scoreFormat = input.question(`Which scoring algorithm would you like to use?
