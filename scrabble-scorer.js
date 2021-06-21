@@ -100,7 +100,8 @@ let scrabbleObj = {
 };
 
 let scrabbleScore = function(word) {
-	    word = word.toUpperCase();
+	    word = word.toLowerCase();
+        transform(oldPointStructure);
 	    let letterPoints = 0;
 	    for (let i = 0; i < word.length; i++) {
  
@@ -151,7 +152,6 @@ function transform(obj) {
 
 function runProgram() {
    initialPrompt();
-   transform(oldPointStructure);
    console.log(`Score for ${word}: ${scorerPrompt()}`);
    
 }
