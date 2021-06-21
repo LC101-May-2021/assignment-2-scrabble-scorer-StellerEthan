@@ -142,7 +142,7 @@ let newPointStructure = {};
 function transform(obj) {
     for (i in obj){
         for (j=0; j < obj[i].length; j++){
-            newPointStructure[obj[i][j]] = Number(i);;
+            newPointStructure[obj[i][j].toLowerCase()] = Number(i);
                       
         }
     }
