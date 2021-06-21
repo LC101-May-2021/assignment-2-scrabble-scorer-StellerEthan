@@ -76,22 +76,22 @@ let scrabbleScore = function(word) {
 let simpleObj = {
     name: "Simple Score",
     description: "Each letter is worth 1 point.",
-    scoringFuction: simpleScore
+    scoringFunction: simpleScore
 }
 
 let vowelObj = {
     name: "Bonus Vowels",
     description: 'Vowels are 3 pts, consonants are 1 pt.',
-    scoringFuction: vowelBonusScore
+    scoringFunction: vowelBonusScore
 }
 
 let scrabbleObj = {
     name:"Scrabble",
     description:"The traditional scoring algorithm.",
-    scoringFuction : scrabbleScore
+    scoringFunction : scrabbleScore
 };
 
-const scoringAlgorithms = [simpleObj.scoringFuction(word) , vowelObj.scoringFuction(word) , scrabbleObj.scoringFuction(word)];
+const scoringAlgorithms = [simpleObj.scoringFunction , vowelObj.scoringFunction , scrabbleObj.scoringFunction];
 
 function scorerPrompt() {
     let scoreFormat = input.question(`Which scoring algorithm would you like to use?
