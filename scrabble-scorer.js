@@ -137,10 +137,9 @@ Enter 0, 1, or 2:`);
     }
 }
 
-
+let newPointStructure = {};
 
 function transform(obj) {
-    let newPointStructure = {};
     for (i in obj){
         for (j=0; j < obj[i].length; j++){
             newPointStructure[obj[i][j]] = i;
