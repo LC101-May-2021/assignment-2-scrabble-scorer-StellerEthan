@@ -3,6 +3,7 @@
 const input = require("readline-sync");
 
 let word = "";
+let newPointStructure = {};
 
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
@@ -84,7 +85,8 @@ let scrabbleObj = {
     name:"Scrabble",
     description:"The traditional scoring algorithm.",
     scoringFuction : function(word) {
-	    word = word.toUpperCase();
+	    word = word.toLowerCase();
+        transform(oldPointStructure);
 	    let letterPoints = 0;
 	    for (let i = 0; i < word.length; i++) {
  
@@ -100,7 +102,7 @@ let scrabbleObj = {
 };
 
 let scrabbleScore = function(word) {
-	    word = word.toUpperCase();
+	    word = word.toLowerCase();
 	    let letterPoints = 0;
         transform(oldPointStructure);
 	    for (let i = 0; i < word.length; i++) {
@@ -108,7 +110,7 @@ let scrabbleScore = function(word) {
 	        for (letter in newPointStructure) {
  
 		        if (letter === word[i]) {
-		    	    letterPoints = letterPoints + Number(newPointStructure[word[i]]);
+		    	    letterPoints = letterPoints + newPointStructure[word[i]];
 		        }
 	        }
 	    }
@@ -137,8 +139,6 @@ Enter 0, 1, or 2:`);
         console.log("error: score format selection")
     }
 }
-
-let newPointStructure = {};
 
 function transform(obj) {
     for (i in obj){
