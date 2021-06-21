@@ -154,6 +154,7 @@ function transform(obj) {
 
 function runProgram() {
    initialPrompt();
+   transform(oldPointStructure);
    console.log(`Score for ${word}: ${scorerPrompt()}`);
    
 }
