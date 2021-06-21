@@ -104,11 +104,11 @@ Enter 0, 1, or 2:`);
     scoreFormat = Number(scoreFormat)
 
     if (scoreFormat === 0){
-        return simpleObj.scoringFuction(word);
+        return simpleObj.scoringFunction(word);
     }else if (scoreFormat === 1) {
-        return vowelObj.scoringFuction(word);
+        return vowelObj.scoringFunction(word);
     } else if (scoreFormat === 2) {
-        return scrabbleObj.scoringFuction(word);
+        return scrabbleObj.scoringFunction(word);
     } else {
         console.log("error: score format selection")
     }
